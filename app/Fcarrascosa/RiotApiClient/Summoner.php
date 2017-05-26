@@ -8,9 +8,7 @@
 
 namespace App\Fcarrascosa\RiotApiClient;
 
-
 use App\Fcarrascosa\RiotApiClient;
-use GuzzleHttp\Exception\ClientException;
 
 class Summoner extends RiotApiClient
 {
@@ -26,37 +24,6 @@ class Summoner extends RiotApiClient
     {
         parent::__construct($apiServerSubdomain);
         $this->path = self::SUMMONER_PATH;
-    }
-
-    /**
-     * @param string $endpoint
-     * @param array $query
-     * @param int|string|null $id
-     * @return mixed
-     */
-    private function request(string $endpoint, array $query = null, string $id = null)
-    {
-        $url = $this->url . $this->path . $endpoint;
-
-        if($id !== null) $url = $url . '/' . $id;
-
-        try {
-
-            $request = $this->client->request('GET', $url, [
-                'headers' => [
-                    'X-Riot-Token' => $this->api_key
-                ],
-                'query' => $query,
-            ])->getBody()->getContents();
-
-        }catch (ClientException $e){
-            abort($e->getCode());
-        }
-
-        $response = json_decode($request);
-
-        return $response;
-
     }
 
     /**
@@ -83,6 +50,10 @@ class Summoner extends RiotApiClient
         return $response;
     }
 
+    /**
+     * @param int $id
+     * @return mixed
+     */
     public function getSummonerById(int $id)
     {
         $endpoint = null;

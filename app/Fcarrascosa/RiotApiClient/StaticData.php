@@ -9,13 +9,11 @@
 namespace App\Fcarrascosa\RiotApiClient;
 
 use App\Fcarrascosa\RiotApiClient;
-use GuzzleHttp\Exception\ClientException;
 
 class StaticData extends RiotApiClient
 {
     const STATIC_DATA_PATH = '/lol/static-data/v3/';
 
-    private $path;
     /**
      * StaticData constructor.
      * @param string $apiServerSubdomain
@@ -24,37 +22,6 @@ class StaticData extends RiotApiClient
     {
         parent::__construct();
         $this->path = self::STATIC_DATA_PATH;
-    }
-
-    /**
-     * @param string $endpoint
-     * @param array $query
-     * @param string|null $id
-     * @return mixed
-     */
-    private function request(string $endpoint, array $query = null, int $id = null)
-    {
-        $url = $this->url . $this->path . $endpoint;
-
-        if($id !== null) $url = $url . '/' . $id;
-
-        try {
-
-            $request = $this->client->request('GET', $url, [
-                'headers' => [
-                    'X-Riot-Token' => $this->api_key
-                ],
-                'query' => $query,
-            ])->getBody()->getContents();
-
-        }catch (ClientException $e){
-            abort($e->getCode());
-        }
-
-        $response = json_decode($request);
-
-        return $response;
-
     }
 
 

@@ -41,6 +41,10 @@ class RiotApiClient extends GuzzleClient
     /**
      * @var string
      */
+    protected $path;
+    /**
+     * @var string
+     */
     protected $api_key;
 
     /**
@@ -58,6 +62,37 @@ class RiotApiClient extends GuzzleClient
         $this->url = str_replace('{{subdomain}}', $this->apiServerSubdomain, $this->apiDomain);
         $this->api_key = env('RIOT_API_KEY');
         $this->client = new Client();
+
+    }
+
+    /**
+     * @param string $endpoint
+     * @param array $query
+     * @param string|null $id
+     * @return mixed
+     */
+    protected function request(string $endpoint, array $query = null, string $id = null)
+    {
+        $url = $this->url . $this->path . $endpoint;
+
+        if($id !== null) $url = $url . '/' . $id;
+
+        try {
+
+            $request = $this->client->request('GET', $url, [
+                'headers' => [
+                    'X-Riot-Token' => $this->api_key
+                ],
+                'query' => $query,
+            ])->getBody()->getContents();
+
+        }catch (ClientException $e){
+            abort($e->getCode());
+        }
+
+        $response = json_decode($request);
+
+        return $response;
 
     }
 

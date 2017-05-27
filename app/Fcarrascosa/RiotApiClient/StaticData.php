@@ -33,7 +33,6 @@ class StaticData extends RiotApiClient
         $endpoint = 'champions';
         $query    = [
                 'champListData' => 'all',
-                'locale'      => config('app.locale')
             ];
         $response = $this->request($endpoint, $query)->data;
 
@@ -50,7 +49,6 @@ class StaticData extends RiotApiClient
         $endpoint  = 'champions';
         $query     = [
                 'champData' => 'all',
-                'locale'      => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query, $id);
 
@@ -65,7 +63,6 @@ class StaticData extends RiotApiClient
         $endpoint = 'items';
         $query    = [
                 'itemListData' => 'all',
-                'locale'      => config('app.locale')
             ];
         $response = $this->request($endpoint, $query);
 
@@ -81,7 +78,6 @@ class StaticData extends RiotApiClient
         $endpoint  = 'items';
         $query     = [
                 'itemData' => 'all',
-                'locale'      => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query, $id);
 
@@ -94,10 +90,7 @@ class StaticData extends RiotApiClient
     public function getLanguageStrings()
     {
         $endpoint = 'language-strings';
-        $query    = [
-                'locale'      => config('app.locale')
-            ];
-        $response  = $this->request($endpoint, $query);
+        $response  = $this->request($endpoint);
 
         return $response;
 
@@ -120,10 +113,7 @@ class StaticData extends RiotApiClient
     public function getMaps()
     {
         $endpoint = 'maps';
-        $query    = [
-                'locale' => config('app.locale')
-            ];
-        $response  = $this->request($endpoint, $query);
+        $response  = $this->request($endpoint);
 
         return $response;
     }
@@ -136,7 +126,6 @@ class StaticData extends RiotApiClient
         $endpoint = 'masteries';
         $query    = [
                 'masteryListData' => 'all',
-                'locale'          => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query);
 
@@ -152,7 +141,6 @@ class StaticData extends RiotApiClient
         $endpoint  = 'masteries';
         $query     = [
                 'masteryData' => 'all',
-                'locale'      => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query, $id);
 
@@ -165,10 +153,7 @@ class StaticData extends RiotApiClient
     public function getProfileIcons()
     {
         $endpoint = 'profile-icons';
-        $query    = [
-                'locale' => config('app.locale')
-            ];
-        $response  = $this->request($endpoint, $query);
+        $response  = $this->request($endpoint);
 
         return $response;
     }
@@ -193,7 +178,6 @@ class StaticData extends RiotApiClient
         $endpoint = 'runes';
         $query    = [
                 'runeListData' => 'all',
-                'locale'          => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query);
 
@@ -209,7 +193,6 @@ class StaticData extends RiotApiClient
         $endpoint  = 'runes';
         $query     = [
                 'runeData' => 'all',
-                'locale'      => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query, $id);
 
@@ -224,7 +207,6 @@ class StaticData extends RiotApiClient
         $endpoint = 'summoner-spells';
         $query    = [
                 'spellListData' => 'all',
-                'locale'          => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query);
 
@@ -240,7 +222,6 @@ class StaticData extends RiotApiClient
         $endpoint  = 'runes';
         $query     = [
                 'spellData' => 'all',
-                'locale'      => config('app.locale')
             ];
         $response  = $this->request($endpoint, $query, $id);
 

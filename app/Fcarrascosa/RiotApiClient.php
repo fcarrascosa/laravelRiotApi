@@ -74,6 +74,7 @@ class RiotApiClient extends GuzzleClient
     protected function request(string $endpoint, array $query = null, string $id = null)
     {
         $url = $this->url . $this->path . $endpoint;
+        $query = $this->httpQueryBuilder($query);
 
         if($id !== null) $url = $url . '/' . $id;
 
@@ -93,6 +94,29 @@ class RiotApiClient extends GuzzleClient
         $response = json_decode($request);
 
         return $response;
+
+    }
+
+    /**
+     * @param array|null $params
+     * @return array
+     */
+    protected function httpQueryBuilder(array $params = null): array
+    {
+        $query  = array();
+        $locale = config('app.locale');
+        foreach($params as $key => $value){
+            if($key == 'locale'){
+                $locale = $value;
+            }else{
+                $query[$key] = $value;
+            }
+
+        }
+
+        $query['locale'] = $locale;
+
+        return $query;
 
     }
 

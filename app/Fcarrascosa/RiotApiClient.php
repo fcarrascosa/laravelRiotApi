@@ -82,7 +82,8 @@ class RiotApiClient extends GuzzleClient
 
             $request = $this->client->request('GET', $url, [
                 'headers' => [
-                    'X-Riot-Token' => $this->api_key
+                    'Accept' => 'application/json',
+                    'X-Riot-Token' => $this->api_key,
                 ],
                 'query' => $query,
             ])->getBody()->getContents();
@@ -90,11 +91,9 @@ class RiotApiClient extends GuzzleClient
         }catch (ClientException $e){
             abort($e->getCode());
         }
-
-        $response = json_decode($request);
+        $response = json_decode($request, true);
 
         return $response;
-
     }
 
     /**
@@ -105,13 +104,15 @@ class RiotApiClient extends GuzzleClient
     {
         $query  = array();
         $locale = config('app.locale');
-        foreach($params as $key => $value){
-            if($key == 'locale'){
-                $locale = $value;
-            }else{
-                $query[$key] = $value;
-            }
+        if ($params != null) {
+            foreach ((array)$params as $key => $value) {
+                if ($key == 'locale') {
+                    $locale = $value;
+                } else {
+                    $query[$key] = $value;
+                }
 
+            }
         }
 
         $query['locale'] = $locale;

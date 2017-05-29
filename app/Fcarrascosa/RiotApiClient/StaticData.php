@@ -34,7 +34,8 @@ class StaticData extends RiotApiClient
         $query    = [
                 'champListData' => 'all',
             ];
-        $response = $this->request($endpoint, $query)->data;
+
+        $response = $this->request($endpoint, $query)['data'];
 
         return $response;
 

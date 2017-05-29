@@ -12,9 +12,9 @@ use App\Fcarrascosa\RiotApiClient;
 
 class Summoner extends RiotApiClient
 {
-    const SUMMONER_PATH = '/lol/summoners/v3/summoners/';
+    const SUMMONER_PATH = '/lol/summoner/v3/summoners/';
 
-    private $path;
+    protected $path;
 
     /**
      * Summoner constructor.
@@ -34,7 +34,6 @@ class Summoner extends RiotApiClient
     {
         $endpoint = 'by-account';
         $response = $this->request($endpoint, null, $id);
-
         return $response;
     }
 

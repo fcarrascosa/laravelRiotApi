@@ -103,22 +103,11 @@ class RiotApiClient extends GuzzleClient
     protected function httpQueryBuilder(array $params = null): array
     {
         $query  = array();
-        $locale = config('app.locale');
-        if ($params != null) {
-            foreach ((array)$params as $key => $value) {
-                if ($key == 'locale') {
-                    $locale = $value;
-                } else {
-                    $query[$key] = $value;
-                }
-
-            }
+        $query['locale'] = config('app.locale');
+        foreach ((array)$params as $key => $value) {
+            $query[$key] = $value;
         }
-
-        $query['locale'] = $locale;
-
         return $query;
-
     }
 
 

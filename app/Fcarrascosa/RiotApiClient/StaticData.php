@@ -14,6 +14,8 @@ class StaticData extends RiotApiClient
 {
     const STATIC_DATA_PATH = '/lol/static-data/v3/';
 
+    protected $path;
+
     /**
      * StaticData constructor.
      * @param string $apiServerSubdomain
@@ -26,26 +28,24 @@ class StaticData extends RiotApiClient
 
 
     /**
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return array
      */
-    public function getAllChampions()
+    public function getAllChampions(): array
     {
         $endpoint = 'champions';
         $query    = [
                 'champListData' => 'all',
             ];
-
         $response = $this->request($endpoint, $query)['data'];
 
         return $response;
-
     }
 
     /**
      * @param int $id
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return array
      */
-    public function getChampionById(int $id)
+    public function getChampionById(int $id): array
     {
         $endpoint  = 'champions';
         $query     = [
@@ -57,9 +57,9 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getAllItems()
+    public function getAllItems(): array
     {
         $endpoint = 'items';
         $query    = [
@@ -72,9 +72,9 @@ class StaticData extends RiotApiClient
 
     /**
      * @param int $id
-     * @return mixed
+     * @return array
      */
-    public function getItemById(int $id)
+    public function getItemById(int $id): array
     {
         $endpoint  = 'items';
         $query     = [
@@ -86,21 +86,20 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getLanguageStrings()
+    public function getLanguageStrings(): array
     {
         $endpoint = 'language-strings';
         $response  = $this->request($endpoint);
 
         return $response;
-
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getLanguages()
+    public function getLanguages(): array
     {
         $endpoint = 'languages';
         $response  = $this->request($endpoint);
@@ -109,9 +108,9 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getMaps()
+    public function getMaps(): array
     {
         $endpoint = 'maps';
         $response  = $this->request($endpoint);
@@ -120,9 +119,9 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getAllMasteries()
+    public function getAllMasteries(): array
     {
         $endpoint = 'masteries';
         $query    = [
@@ -135,9 +134,9 @@ class StaticData extends RiotApiClient
 
     /**
      * @param int $id
-     * @return mixed
+     * @return array
      */
-    public function getMasteryById(int $id)
+    public function getMasteryById(int $id): array
     {
         $endpoint  = 'masteries';
         $query     = [
@@ -149,9 +148,9 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getProfileIcons()
+    public function getProfileIcons(): array
     {
         $endpoint = 'profile-icons';
         $response  = $this->request($endpoint);
@@ -160,21 +159,20 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getRealms()
+    public function getRealms(): array
     {
         $endpoint = 'realms';
         $response  = $this->request($endpoint);
 
         return $response;
-
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getAllRunes()
+    public function getAllRunes(): array
     {
         $endpoint = 'runes';
         $query    = [
@@ -187,9 +185,9 @@ class StaticData extends RiotApiClient
 
     /**
      * @param int $id
-     * @return mixed
+     * @return array
      */
-    public function getRuneById(int $id)
+    public function getRuneById(int $id): array
     {
         $endpoint  = 'runes';
         $query     = [
@@ -201,9 +199,9 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getAllSummonerSpells()
+    public function getAllSummonerSpells(): array
     {
         $endpoint = 'summoner-spells';
         $query    = [
@@ -216,9 +214,9 @@ class StaticData extends RiotApiClient
 
     /**
      * @param int $id
-     * @return mixed
+     * @return array
      */
-    public function getSummonerSpellById(int $id)
+    public function getSummonerSpellById(int $id): array
     {
         $endpoint  = 'runes';
         $query     = [
@@ -230,14 +228,13 @@ class StaticData extends RiotApiClient
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getAllVersions()
+    public function getAllVersions(): array
     {
         $endpoint  = 'versions';
         $response  = $this->request($endpoint);
 
         return $response;
-
     }
 }

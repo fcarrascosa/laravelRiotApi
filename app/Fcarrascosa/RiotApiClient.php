@@ -52,8 +52,8 @@ class RiotApiClient extends GuzzleClient
      * @param string $apiServerSubdomain
      * @throws ConfigurationException;
      */
-    public function __construct( string $apiServerSubdomain = 'euw1' ) {
-
+    public function __construct( string $apiServerSubdomain = 'euw1' )
+    {
         if(getenv('RIOT_API_KEY') === false) throw new ConfigurationException(ConfigurationException::$errorCodes['NO_API_KEY']);
         if(getenv('RIOT_API_URL') === false) throw new ConfigurationException(ConfigurationException::$errorCodes['NO_API_URL']);
 
@@ -69,9 +69,9 @@ class RiotApiClient extends GuzzleClient
      * @param string $endpoint
      * @param array $query
      * @param string|null $id
-     * @return mixed
+     * @return array
      */
-    protected function request(string $endpoint, array $query = null, string $id = null)
+    protected function request(string $endpoint, array $query = null, string $id = null): array
     {
         $url = $this->url . $this->path . $endpoint;
         $query = $this->httpQueryBuilder($query);
@@ -107,8 +107,8 @@ class RiotApiClient extends GuzzleClient
         foreach ((array)$params as $key => $value) {
             $query[$key] = $value;
         }
+
         return $query;
     }
-
 
 }

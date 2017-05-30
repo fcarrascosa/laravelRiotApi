@@ -28,9 +28,9 @@ class Summoner extends RiotApiClient
 
     /**
      * @param int $id
-     * @return mixed
+     * @return array
      */
-    public function getSummonerByAccountId(int $id)
+    public function getSummonerByAccountId(int $id): array
     {
         $endpoint = 'by-account';
         $response = $this->request($endpoint, null, $id);
@@ -39,9 +39,9 @@ class Summoner extends RiotApiClient
 
     /**
      * @param string $name
-     * @return mixed
+     * @return array
      */
-    public function getSummonerByName(string $name)
+    public function getSummonerByName(string $name): array
     {
         $endpoint = 'by-name';
         $response = $this->request($endpoint, null, $name);
@@ -51,9 +51,9 @@ class Summoner extends RiotApiClient
 
     /**
      * @param int $id
-     * @return mixed
+     * @return array
      */
-    public function getSummonerById(int $id)
+    public function getSummonerById(int $id): array
     {
         $endpoint = null;
         $response = $this->request($endpoint, null, $id);

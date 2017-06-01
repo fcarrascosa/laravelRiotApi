@@ -10,10 +10,20 @@ namespace App\Fcarrascosa\RiotApiClient;
 
 use App\Fcarrascosa\RiotApiClient;
 
+/**
+ * Class Champion
+ * @package App\Fcarrascosa\RiotApiClient
+ */
 class Champion extends RiotApiClient
 {
+    /**
+     * @const CHAMPION_PATH the API general Path
+     */
     const CHAMPION_PATH = '/lol/platform/v3/champions';
 
+    /**
+     * @var string the Api general path for Champions
+     */
     protected $path;
 
 
@@ -28,6 +38,7 @@ class Champion extends RiotApiClient
     }
 
     /**
+     * Returns the list of every Champion as an associative array
      * @return array
      */
     public function getAllChampions(): array
@@ -42,6 +53,7 @@ class Champion extends RiotApiClient
     }
 
     /**
+     * Returns a Champion given its ID
      * @param int $id
      * @return array
      */
@@ -52,6 +64,4 @@ class Champion extends RiotApiClient
 
         return $response;
     }
-
-
 }

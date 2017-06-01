@@ -10,10 +10,20 @@ namespace App\Fcarrascosa\RiotApiClient;
 
 use App\Fcarrascosa\RiotApiClient;
 
+/**
+ * Class StaticData
+ * @package App\Fcarrascosa\RiotApiClient
+ */
 class StaticData extends RiotApiClient
 {
+    /**
+     * @const STATIC_DATA_PATH the API general path
+     */
     const STATIC_DATA_PATH = '/lol/static-data/v3/';
 
+    /**
+     * @var string the api general path for Static Data
+     */
     protected $path;
 
     /**
@@ -28,6 +38,7 @@ class StaticData extends RiotApiClient
 
 
     /**
+     * Returns the list of every Champion as an associative array
      * @return array
      */
     public function getAllChampions(): array
@@ -42,6 +53,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns a Champion given his ID
      * @param int $id
      * @return array
      */
@@ -57,6 +69,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns the list of every Item as an associative array
      * @return array
      */
     public function getAllItems(): array
@@ -71,6 +84,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns an Item given its ID
      * @param int $id
      * @return array
      */
@@ -86,6 +100,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns the Language Strings
      * @return array
      */
     public function getLanguageStrings(): array
@@ -97,6 +112,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Return the list of available Languages
      * @return array
      */
     public function getLanguages(): array
@@ -108,6 +124,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Return the list of maps available
      * @return array
      */
     public function getMaps(): array
@@ -119,6 +136,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns the list of every Mastery as an associative array
      * @return array
      */
     public function getAllMasteries(): array
@@ -133,6 +151,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns a Mastery given its ID
      * @param int $id
      * @return array
      */
@@ -148,6 +167,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns all pofile Icons
      * @return array
      */
     public function getProfileIcons(): array
@@ -159,6 +179,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns all Realms
      * @return array
      */
     public function getRealms(): array
@@ -170,6 +191,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns the list of every Rune as an associative array
      * @return array
      */
     public function getAllRunes(): array
@@ -184,6 +206,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns a Rune given its ID
      * @param int $id
      * @return array
      */
@@ -199,6 +222,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns the list of every Summoner Spell as an associative array
      * @return array
      */
     public function getAllSummonerSpells(): array
@@ -213,6 +237,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns a Summoner Spell given its ID
      * @param int $id
      * @return array
      */
@@ -228,6 +253,7 @@ class StaticData extends RiotApiClient
     }
 
     /**
+     * Returns a list of all patches
      * @return array
      */
     public function getAllVersions(): array

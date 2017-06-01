@@ -10,10 +10,20 @@ namespace App\Fcarrascosa\RiotApiClient;
 
 use App\Fcarrascosa\RiotApiClient;
 
+/**
+ * Class Summoner
+ * @package App\Fcarrascosa\RiotApiClient
+ */
 class Summoner extends RiotApiClient
 {
+    /**
+     * @const SUMMONER_PATH the API general path
+     */
     const SUMMONER_PATH = '/lol/summoner/v3/summoners/';
 
+    /**
+     * @var string the API general path for Summoners
+     */
     protected $path;
 
     /**
@@ -27,6 +37,7 @@ class Summoner extends RiotApiClient
     }
 
     /**
+     * Returns a Summoner given his Account ID
      * @param int $id
      * @return array
      */
@@ -38,6 +49,7 @@ class Summoner extends RiotApiClient
     }
 
     /**
+     * Returns a Summoner given his username
      * @param string $name
      * @return array
      */
@@ -50,6 +62,7 @@ class Summoner extends RiotApiClient
     }
 
     /**
+     * Returns a Summoner given his Summoner ID
      * @param int $id
      * @return array
      */

@@ -23,34 +23,34 @@ class RiotApiClient extends GuzzleClient
 {
 
     /**
-     * @var Client
+     * @var Client the HTTP Client using GuzzleHTTP
      */
     protected $client;
     /**
-     * @var string
+     * @var string The Riot's api Base Url
      */
     protected $apiDomain;
     /**
-     * @var string
+     * @var string The server against we should connect
      */
     protected $apiServerSubdomain;
     /**
-     * @var string
+     * @var string The full Riot's api Base Url, with the apiServerSubdomain
      */
     protected $url;
     /**
-     * @var string
+     * @var string The Path of the api where we will do the request
      */
     protected $path;
     /**
-     * @var string
+     * @var string The Developer's api key
      */
     protected $api_key;
 
     /**
      * RiotApiClient constructor.
      * @param string $apiServerSubdomain
-     * @throws ConfigurationException;
+     * @throws ConfigurationException
      */
     public function __construct( string $apiServerSubdomain = 'euw1' )
     {
@@ -66,6 +66,7 @@ class RiotApiClient extends GuzzleClient
     }
 
     /**
+     * Returns the data requested in an associative array
      * @param string $endpoint
      * @param array $query
      * @param string|null $id
@@ -97,6 +98,7 @@ class RiotApiClient extends GuzzleClient
     }
 
     /**
+     * Returns the query that we will use on the request method as an associative array.
      * @param array|null $params
      * @return array
      */

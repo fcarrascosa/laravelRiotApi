@@ -18,6 +18,9 @@ use \Exception;
 class ConfigurationException extends Exception
 {
 
+    /**
+     * @var array The posiible error codes.
+     */
     public static $errorCodes = array(
         'NO_BASE_URL' => 'There is no riot api base url (RIOT_API_URL) defined in your .env file',
         'NO_API_KEY' => 'There is no api key defined (RIOT_API_KEY) in your .env file',

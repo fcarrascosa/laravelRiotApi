@@ -243,7 +243,7 @@ class StaticData extends RiotApiClient
      */
     public function getSummonerSpellById(int $id): array
     {
-        $endpoint  = 'runes';
+        $endpoint  = 'summoner-spells';
         $query     = [
                 'spellData' => 'all',
             ];

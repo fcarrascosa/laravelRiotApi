@@ -43,9 +43,9 @@ class Champion extends RiotApiClient
      */
     public function getAllChampions(): array
     {
-        $endpoint = null;
+        $endpoint = '';
         $query    = [
-            'freeToPlay' => true,
+            'freeToPlay' => 'true',
         ];
         $response = $this->request($endpoint, $query);
 
@@ -59,7 +59,7 @@ class Champion extends RiotApiClient
      */
     public function getChampionById(int $id): array
     {
-        $endpoint = null;
+        $endpoint = '';
         $response = $this->request($endpoint, null, $id);
 
         return $response;

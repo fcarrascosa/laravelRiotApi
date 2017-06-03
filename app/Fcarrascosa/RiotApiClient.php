@@ -70,15 +70,14 @@ class RiotApiClient extends GuzzleClient
      * @param string $endpoint
      * @param array $query
      * @param string|null $id
-     * @return array
+     * @return array | integer
      */
-    protected function request(string $endpoint, array $query = null, string $id = null): array
+    protected function request(string $endpoint, array $query = null, string $id = null)
     {
+        if($endpoint != '') $endpoint = '/' . $endpoint;
         $url = $this->url . $this->path . $endpoint;
-        $query = $this->httpQueryBuilder($query);
-
         if($id !== null) $url = $url . '/' . $id;
-
+        $query = $this->httpQueryBuilder($query);
         try {
 
             $request = $this->client->request('GET', $url, [
@@ -109,7 +108,6 @@ class RiotApiClient extends GuzzleClient
         foreach ((array)$params as $key => $value) {
             $query[$key] = $value;
         }
-
         return $query;
     }
 

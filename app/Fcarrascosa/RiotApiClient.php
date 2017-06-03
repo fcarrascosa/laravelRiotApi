@@ -79,7 +79,6 @@ class RiotApiClient extends GuzzleClient
         if($id !== null) $url = $url . '/' . $id;
         $query = $this->httpQueryBuilder($query);
         try {
-
             $request = $this->client->request('GET', $url, [
                 'headers' => [
                     'Accept' => 'application/json',
@@ -87,7 +86,6 @@ class RiotApiClient extends GuzzleClient
                 ],
                 'query' => $query,
             ])->getBody()->getContents();
-
         }catch (ClientException $e){
             abort($e->getCode());
         }

@@ -19,7 +19,7 @@ class StaticData extends RiotApiClient
     /**
      * @const STATIC_DATA_PATH the API general path
      */
-    const STATIC_DATA_PATH = '/lol/static-data/v3/';
+    const STATIC_DATA_PATH = '/lol/static-data/v3';
 
     /**
      * @var string the api general path for Static Data

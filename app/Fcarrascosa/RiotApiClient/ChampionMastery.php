@@ -44,7 +44,7 @@ class ChampionMastery extends RiotApiClient
      */
     public function getAllChampionMasteries(int $summonerId): array
     {
-        $endpoint = '/champion-masteries/by-summoner';
+        $endpoint = 'champion-masteries/by-summoner';
         $response = $this->request($endpoint, null, $summonerId);
 
         return $response;
@@ -58,7 +58,7 @@ class ChampionMastery extends RiotApiClient
      */
     public function getChampionMastery(int $summonerId, int $championId): array
     {
-        $endpoint = '/champion-masteries/by-summoner' . $summonerId . '/by-champion';
+        $endpoint = 'champion-masteries/by-summoner/' . $summonerId . '/by-champion';
         $response = $this->request($endpoint, null, $championId);
 
         return $response;
@@ -67,11 +67,11 @@ class ChampionMastery extends RiotApiClient
     /**
      * Returns the Champion Mastery of a Summoner given his ID.
      * @param int $summonerId
-     * @return array
+     * @return int
      */
-    public function getSummonerScore(int $summonerId): array
+    public function getSummonerScore(int $summonerId): int
     {
-        $endpoint = '/scores/by-summoner';
+        $endpoint = 'scores/by-summoner';
         $response = $this->request($endpoint, null, $summonerId);
 
         return $response;

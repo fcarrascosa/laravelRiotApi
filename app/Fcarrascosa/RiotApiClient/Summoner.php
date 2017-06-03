@@ -19,7 +19,7 @@ class Summoner extends RiotApiClient
     /**
      * @const SUMMONER_PATH the API general path
      */
-    const SUMMONER_PATH = '/lol/summoner/v3/summoners/';
+    const SUMMONER_PATH = '/lol/summoner/v3/summoners';
 
     /**
      * @var string the API general path for Summoners
@@ -68,7 +68,7 @@ class Summoner extends RiotApiClient
      */
     public function getSummonerById(int $id): array
     {
-        $endpoint = null;
+        $endpoint = '';
         $response = $this->request($endpoint, null, $id);
 
         return $response;

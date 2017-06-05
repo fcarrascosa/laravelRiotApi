@@ -26,7 +26,6 @@ class Champion extends RiotApiClient
      */
     protected $path;
 
-
     /**
      * Champion constructor.
      * @param string $apiServerSubdomain

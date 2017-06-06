@@ -28,7 +28,7 @@ class Runes extends RiotApiClient
      */
     public function __construct(string $apiServerSubDomain = 'euw1')
     {
-        parent::__construct();
+        parent::__construct($apiServerSubDomain);
         $this->path = self::RUNES_PATH;
     }
 

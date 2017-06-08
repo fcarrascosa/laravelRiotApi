@@ -30,9 +30,9 @@ class StaticData extends RiotApiClient
      * StaticData constructor.
      * @param string $apiServerSubdomain
      */
-    public function __construct( string $apiServerSubdomain = 'euw1' )
+    public function __construct(string $apiServerSubdomain = 'euw1')
     {
-        parent::__construct();
+        parent::__construct($apiServerSubdomain);
         $this->path = self::STATIC_DATA_PATH;
     }
 

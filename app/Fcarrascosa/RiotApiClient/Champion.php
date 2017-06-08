@@ -32,7 +32,7 @@ class Champion extends RiotApiClient
      */
     public function __construct( string $apiServerSubdomain = 'euw1' )
     {
-        parent::__construct();
+        parent::__construct($apiServerSubdomain);
         $this->path = self::CHAMPION_PATH;
     }
 
